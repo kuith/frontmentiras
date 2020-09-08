@@ -1,0 +1,24 @@
+jornadas = [
+    _id,
+    nombre,
+    fecha,
+    texto
+investigadores = 
+    _id
+    nombre,
+    nombreImagen,
+    profesion,
+    motivacion,
+    beneficios,
+    salud,
+    estabilidad,
+    cordura,
+    pilares,
+    fuentes,
+    trasfondo,
+    personalidad,
+    vinculo,
+    academicas,
+    interpersonales,
+    tecnicas,
+    generales,
