@@ -2,14 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-import {
-  //jornadas ,
-  investigadores,
-} from '../../util/dataUtil/datos'; // recuperar de la base de datos
-
 const NavBar = () => {
-  //const jornadasDatos = jornadas;
-  //const investigadoresDatos = investigadores;
 
   const [jornadasDatos, setJornadasDatos] = useState([]);
   const [investigadoresDatos, setInvestigadoresDatos] = useState([]);
