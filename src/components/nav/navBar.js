@@ -14,7 +14,7 @@ const NavBar = () => {
       const result = await axios.get("/jornada");
 
       setJornadasDatos(result.data.jornadas);
-      console.log(result.data.jornadas);
+      //console.log(result.data.jornadas);
     };
     fetchData();
   }, []);
@@ -24,14 +24,14 @@ const NavBar = () => {
       const result = await axios.get("/investigador");
 
       setInvestigadoresDatos(result.data.investigadores);
-      console.log(console.log(result.data.investigadores));
+      //console.log(console.log(result.data.investigadores));
     };
     fetchData();
   }, []);
 
   //jornadas
   const jornadasNavItem = jornadasDatos.map(jornada => (
-    <Link className="dropdown-item" to={`/jornadas/${jornada._id}`}>
+    <Link className="dropdown-item" to={`/jornada/${jornada._id}`}>
       {jornada.nombreJornada}
     </Link>
   ));
@@ -53,7 +53,7 @@ const NavBar = () => {
         aria-labelledby="navbarDropdownMenuLink"
       >
         {jornadasNavItem}
-        <Link to="/jornadas/nuevaJornada" className="dropdown-item">
+        <Link to="/jornada/nuevaJornada" className="dropdown-item">
           Nueva Jornada
         </Link>
       </div>

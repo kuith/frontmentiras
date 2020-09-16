@@ -10,10 +10,10 @@ const Jornada = (props) => {
       const result = await axios.get(`/jornada/${props.id}`);
 
       setJornadaDatos(result.data.jornada);
-      console.log(result.data.jornada);
+      console.log(result.data.jornada._id);
     };
     fetchData();
-  },[]);
+  }, [props.id]);
   
   return (
     <div className="mainContainer">

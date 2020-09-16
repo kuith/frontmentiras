@@ -13,13 +13,13 @@ const Investigador = (props) => {
       console.log(result.data.investigador);
     };
     fetchData();
-  },[]);
+  }, [props.id]);
   
   const basicosImg = (
     <div className="col-md-2 ">
       <img
         className="rounded mx-auto d-block imgInvestigador"
-        //src={require(`../../util/images/${investigadorDatos.nombreImagen}`)}
+        src={`../../util/images/${investigadorDatos.nombreImagen}`}
         alt={investigadorDatos.nombre}
       />
     </div>

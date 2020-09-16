@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState} from 'react';
 
 function NuevaJornada() {
@@ -5,10 +6,21 @@ function NuevaJornada() {
   const [nombre, setNombre] = useState('');
   const [texto, settexto] = useState('');
   const [fecha, setFecha] = useState('');
-
-  const handleSubmit = (evt) => {
+  const [mensaje, setMensaje] = useState('...trabajando');
+ 
+  const handleSubmit =  async evt => {
     evt.preventDefault();
-    console.log(nombre + texto + fecha)
+    ///axios///
+    await axios.post('/jornada', {
+      nombreJornada: nombre,
+      textoJornada: texto,
+      fechaJornada: fecha
+    }).then(response => {
+      if (response.status === "200 OK") {
+        setMensaje("La jornada se ha grabado correctamente");
+        }
+      });
+    console.log("nombre: " + nombre + ".Texto: " + texto + ". Fecha: " + fecha + ". Estado: " + mensaje)
   }
 
   return (

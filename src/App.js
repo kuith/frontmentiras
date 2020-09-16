@@ -15,9 +15,9 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={Intro} />
-          <Route exact path="/jornadas/nuevaJornada" component={NuevaJornada} />
+          <Route exact path="/jornada/nuevaJornada" component={NuevaJornada} />
           <Route
-            path="/jornadas/:jornadaId"
+            path="/jornada/:jornadaId"
             render={({ match }) => <Jornada id={match.params.jornadaId} />}
           />
           <Route
