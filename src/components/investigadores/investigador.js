@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const Investigador = (props) => {
+  //const images = require.context("../../util/images", false);
 
   const [investigadorDatos, setInvestigadorDatos] = useState([]);
 
@@ -15,11 +17,14 @@ const Investigador = (props) => {
     fetchData();
   }, [props.id]);
   
+  //let img_src = images(`./${investigadorDatos.nombreImagen}`);
   const basicosImg = (
     <div className="col-md-2 ">
       <img
         className="rounded mx-auto d-block imgInvestigador"
-        src={`../../util/images/${investigadorDatos.nombreImagen}`}
+        src={process.env.PUBLIC_URL + `../../util/images/${investigadorDatos.nombreImagen}`}
+        //src={`../../util/images/${investigadorDatos.nombreImagen}`}
+        //src={images(`${investigadorDatos.nombreImagen}`)}
         alt={investigadorDatos.nombre}
       />
     </div>
