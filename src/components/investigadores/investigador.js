@@ -3,8 +3,6 @@ import axios from "axios";
 
 
 const Investigador = (props) => {
-  //const images = require.context("../../util/images", false);
-
   const [investigadorDatos, setInvestigadorDatos] = useState([]);
 
   useEffect(() => {
@@ -12,19 +10,18 @@ const Investigador = (props) => {
       const result = await axios.get(`/investigador/${props.id}`);
 
       setInvestigadorDatos(result.data.investigador);
-      console.log(result.data.investigador);
+      //console.log(result.data.investigador);
     };
     fetchData();
   }, [props.id]);
   
-  //let img_src = images(`./${investigadorDatos.nombreImagen}`);
   const basicosImg = (
     <div className="col-md-2 ">
       <img
         className="rounded mx-auto d-block imgInvestigador"
-        src={process.env.PUBLIC_URL + `../../util/images/${investigadorDatos.nombreImagen}`}
-        //src={`../../util/images/${investigadorDatos.nombreImagen}`}
-        //src={images(`${investigadorDatos.nombreImagen}`)}
+        src={
+          process.env.PUBLIC_URL + `/images/${investigadorDatos.nombreImagen}`
+        }
         alt={investigadorDatos.nombre}
       />
     </div>

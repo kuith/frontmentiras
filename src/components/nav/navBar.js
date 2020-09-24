@@ -31,7 +31,7 @@ const NavBar = () => {
 
   //jornadas
   const jornadasNavItem = jornadasDatos.map(jornada => (
-    <Link className="dropdown-item" to={`/jornada/${jornada._id}`}>
+    <Link className="dropdown-item" key={jornada._id} to={`/jornada/${jornada._id}`}>
       {jornada.nombreJornada}
     </Link>
   ));
@@ -62,7 +62,7 @@ const NavBar = () => {
 
   //investigadores
   const investigadoresNavItem = investigadoresDatos.map(investigador => (
-    <Link className="dropdown-item" to={`/investigadores/${investigador._id}`}>
+    <Link className="dropdown-item" key={investigador._id} to={`/investigadores/${investigador._id}`}>
       {investigador.nombre}
     </Link>
   ));

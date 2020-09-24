@@ -1,26 +1,39 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 function NuevaJornada() {
+   let history = useHistory();
   
   const [nombre, setNombre] = useState('');
   const [texto, settexto] = useState('');
   const [fecha, setFecha] = useState('');
-  const [mensaje, setMensaje] = useState('...trabajando');
  
   const handleSubmit =  async evt => {
     evt.preventDefault();
-    ///axios///
-    await axios.post('/jornada', {
-      nombreJornada: nombre,
-      textoJornada: texto,
-      fechaJornada: fecha
-    }).then(response => {
-      if (response.status === "200 OK") {
-        setMensaje("La jornada se ha grabado correctamente");
-        }
+     ///axios///
+    await axios
+      .post("/jornada", {
+        nombreJornada: nombre,
+        textoJornada: texto,
+        fechaJornada: fecha
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error.response)
       });
-    console.log("nombre: " + nombre + ".Texto: " + texto + ". Fecha: " + fecha + ". Estado: " + mensaje)
+    
+    /* console.log("nombre: " + nombre
+      + ".Texto: " + texto
+      + ". Fecha: " + fecha); */
+    
+    //history.push("/", "?estado=pipo");
+    history.push({
+      pathname: "/",
+      search: "pipo"
+    });
   }
 
   return (
