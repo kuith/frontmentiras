@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 function Login() {
@@ -16,14 +16,16 @@ function Login() {
         const result = await axios.get(`/usuario/${password}`);
         console.log(result.status);
         console.log(result.data.usuario[0].admin);
-        setAcceso(true);
+        //localStorage.setItem('usuario', result.data.usuario[0]);
         
       } catch (error) {
         console.log(error.response.status);
         alert("No te conozco, no puedes pasar");
+        setAcceso(false);
       }
-    }
+    };
     fetchData();
+    console.log(`El acceso es ${acceso}`)
   };
 
   return (
