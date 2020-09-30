@@ -5,6 +5,7 @@ import Intro from './components/intro';
 import Jornada from './components/jornadas/jornada';
 import NuevaJornada from './components/jornadas/nuevaJornada';
 import Investigador from './components/investigadores/investigador';
+import Login from './login';
 
 import './App.css';
 

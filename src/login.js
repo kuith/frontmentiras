@@ -1,14 +1,21 @@
-import axios from "axios";
-import React, {useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+//import axios from "axios";
+import React, {useState } from "react";
+import {
+  useHistory,
+  Redirect,
+  withRouter,
+  browserHistory,
+  hashHistory
+} from "react-router-dom";
+import ReactDOM from "react-dom";
+//import { browserHistory } from "react-router";
 
-function Login() {
+const Login = (props) => {
   let history = useHistory();
 
   const [password, setPassword] = useState("");
-  const [acceso, setAcceso] = useState(false);
-
-  const handleSubmit = async evt => {
+ 
+  /* const handleSubmit = async evt => {
     evt.preventDefault();
 
     const fetchData = async () => {
@@ -26,6 +33,22 @@ function Login() {
     };
     fetchData();
     console.log(`El acceso es ${acceso}`)
+  }; */
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    if (password === "aa") {
+      console.log("logeado");
+      //this.props.history.push("/app");
+      //hashHistory.push("/app");
+      //browserHistory.push("/app");
+      
+       // ReactDOM.render(<Redirect to="/app" />)
+      
+    } else {
+      alert("No te conozco, no puedes pasar");
+    }
+    
   };
 
   return (
