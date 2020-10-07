@@ -25,7 +25,6 @@ const General = () => {
             )}
           />
         </Switch>
-        <Jornada id="5f7e009883c09f46d430843e"/>
       </BrowserRouter>
     </div>
   );

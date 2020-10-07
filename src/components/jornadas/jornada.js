@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from 'moment';
 
 const Jornada = (props) => {
  
@@ -15,6 +16,9 @@ const Jornada = (props) => {
     fetchData();
   }, [props.id]);
   
+  function fechaCorta(fecha) {
+    return moment(fecha).format("LL");
+  }
   return (
     <div className="mainContainer">
       <div className="row">
@@ -22,7 +26,7 @@ const Jornada = (props) => {
           <h3>{jornadaDatos.nombreJornada}</h3>
         </div>
         <div className="col-sm text-right">
-          <h6>{jornadaDatos.fechaJornada}</h6>
+          <h6>{fechaCorta(jornadaDatos.fechaJornada)}</h6>
         </div>
       </div>
       <div className="row saltos jornada">{jornadaDatos.textoJornada}</div>
