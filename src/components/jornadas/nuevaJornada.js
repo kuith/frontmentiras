@@ -31,8 +31,8 @@ function NuevaJornada() {
     
     //history.push("/", "?estado=pipo");
     history.push({
-      pathname: "/",
-      search: "pipo"
+      pathname: "/general",
+      //search: "intro"
     });
   }
 

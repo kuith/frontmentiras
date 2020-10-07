@@ -3,10 +3,10 @@ import React from 'react';
 const Intro = (props) => {
   console.log(props.location);
   console.log(props.location.search);
-  if (props.location.serach==="?pipo") {
+  /* if (props.location.serach==="?intro") {
     window.location.forceReload(true);
     console.log('Recargando');
-  }
+  } */
   return (
     <div className="container-fluid text-center">
       <h2>

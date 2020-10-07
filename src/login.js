@@ -40,10 +40,11 @@ const Login = (props) => {
     if (password === "aa") {
       console.log("logeado");
       //this.props.history.push("/app");
-      //hashHistory.push("/app");
-      //browserHistory.push("/app");
+      //hashHistory.push("/general");
+      //browserHistory.push("/general");
       
-       // ReactDOM.render(<Redirect to="/app" />)
+      //return  (<Redirect to="/general" />);
+      props.history.push("/general");
       
     } else {
       alert("No te conozco, no puedes pasar");
@@ -77,4 +78,4 @@ const Login = (props) => {
   );
 }
 
-export default Login;
+export default withRouter(Login);

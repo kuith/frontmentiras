@@ -24,7 +24,6 @@ const NavBar = () => {
       const result = await axios.get("/investigador");
 
       setInvestigadoresDatos(result.data.investigadores);
-      //console.log(console.log(result.data.investigadores));
     };
     fetchData();
   }, []);
@@ -104,11 +103,11 @@ const NavBar = () => {
       </button>
       <div className="collapse navbar-collapse " id="navbarNavDropdown">
         <ul className="navbar-nav">
-          <li className="nav-item active">
+          {/* <li className="nav-item active">
             <Link className="nav-link text-dark" to="/">
               Inicio <span className="sr-only">(current)</span>
             </Link>
-          </li>
+          </li> */}
           {jornadasNav}
           {investigadoresNav}
         </ul>
