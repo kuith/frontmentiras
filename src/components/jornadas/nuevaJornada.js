@@ -3,15 +3,18 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
 function NuevaJornada() {
-   let history = useHistory();
+  let history = useHistory();
+
+  const [nombre, setNombre] = useState("");
+  const [texto, settexto] = useState("");
+  const [fecha, setFecha] = useState("");
+  //regex para la fecha del form:
+  // ^([1-9]|1[0-2])\-([1-9]|[12][0-9]|3[01])\-\d\d\d\d$
   
-  const [nombre, setNombre] = useState('');
-  const [texto, settexto] = useState('');
-  const [fecha, setFecha] = useState('');
- 
-  const handleSubmit =  async evt => {
+
+  const handleSubmit = async evt => {
     evt.preventDefault();
-     ///axios///
+    ///axios///
     await axios
       .post("/jornada", {
         nombreJornada: nombre,
@@ -22,19 +25,19 @@ function NuevaJornada() {
         console.log(response);
       })
       .catch(error => {
-        console.log(error.response)
+        console.log(error.response);
       });
-    
+
     /* console.log("nombre: " + nombre
       + ".Texto: " + texto
       + ". Fecha: " + fecha); */
-    
+
     //history.push("/", "?estado=pipo");
     history.push({
-      pathname: "/general",
+      pathname: "/general"
       //search: "intro"
     });
-  }
+  };
 
   return (
     <div className="container justify-content-center mt-4">
@@ -42,10 +45,11 @@ function NuevaJornada() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="InputNombre">Nombre</label>
-          <input type="text"
+          <input
+            type="text"
             className="form-control"
             id="InputNombre"
-            value = {nombre}
+            value={nombre}
             onChange={e => setNombre(e.target.value)}
           />
         </div>
@@ -55,7 +59,7 @@ function NuevaJornada() {
             className="form-control"
             id="inputText"
             rows="3"
-            value = {texto}
+            value={texto}
             onChange={e => settexto(e.target.value)}
           ></textarea>
         </div>
@@ -65,11 +69,17 @@ function NuevaJornada() {
             type="text"
             className="form-control"
             id="InputFecha"
-            value = {fecha}
+            value={fecha}
+            placeholder="mm-dd-aaaa"
             onChange={e => setFecha(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn bg-f0e3c7  border border-dark text-dark">Guardar Jornada</button>
+        <button
+          type="submit"
+          className="btn bg-f0e3c7  border border-dark text-dark"
+        >
+          Guardar Jornada
+        </button>
       </form>
     </div>
   );
