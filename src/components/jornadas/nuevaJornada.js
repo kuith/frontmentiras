@@ -8,36 +8,46 @@ function NuevaJornada() {
   const [nombre, setNombre] = useState("");
   const [texto, settexto] = useState("");
   const [fecha, setFecha] = useState("");
-  //regex para la fecha del form:
-  // ^([1-9]|1[0-2])\-([1-9]|[12][0-9]|3[01])\-\d\d\d\d$
-  
+  const [formValido, setFormValido] = useState(false);
+
+    const validateDate = (e) => {
+      if (!e.match(/^([1-9]|1[0-2])\-([1-9]|[12][0-9]|3[01])\-\d\d\d\d$/)) {
+        alert("La fecha debe tener el formato mm-dd-aaaa");
+        setFormValido(false);
+      } else {
+        setFormValido(true);
+      }
+    }
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-    ///axios///
-    await axios
-      .post("/jornada", {
-        nombreJornada: nombre,
-        textoJornada: texto,
-        fechaJornada: fecha
-      })
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error.response);
-      });
+    console.log(formValido);
+      ///axios///
+    if(formValido) {
+      await axios
+        .post("/jornada", {
+          nombreJornada: nombre,
+          textoJornada: texto,
+          fechaJornada: fecha
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
 
-    /* console.log("nombre: " + nombre
-      + ".Texto: " + texto
-      + ". Fecha: " + fecha); */
+        /* console.log("nombre: " + nombre
+          + ".Texto: " + texto
+          + ". Fecha: " + fecha); */
 
-    //history.push("/", "?estado=pipo");
-    history.push({
-      pathname: "/general"
-      //search: "intro"
-    });
-  };
+        //history.push("/", "?estado=pipo");
+        history.push({
+          pathname: "/general"
+          //search: "intro"
+        });
+      }
+    };
 
   return (
     <div className="container justify-content-center mt-4">
@@ -72,6 +82,7 @@ function NuevaJornada() {
             value={fecha}
             placeholder="mm-dd-aaaa"
             onChange={e => setFecha(e.target.value)}
+            onBlur={e => validateDate(e.target.value)}
           />
         </div>
         <button

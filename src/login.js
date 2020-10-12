@@ -1,49 +1,15 @@
 //import axios from "axios";
 import React, {useState } from "react";
-import {
-  useHistory,
-  Redirect,
-  withRouter,
-  browserHistory,
-  hashHistory
-} from "react-router-dom";
-import ReactDOM from "react-dom";
-//import { browserHistory } from "react-router";
+import { withRouter } from "react-router-dom";
 
 const Login = (props) => {
-  let history = useHistory();
 
   const [password, setPassword] = useState("");
- 
-  /* const handleSubmit = async evt => {
-    evt.preventDefault();
-
-    const fetchData = async () => {
-      try {
-        const result = await axios.get(`/usuario/${password}`);
-        console.log(result.status);
-        console.log(result.data.usuario[0].admin);
-        //localStorage.setItem('usuario', result.data.usuario[0]);
-        
-      } catch (error) {
-        console.log(error.response.status);
-        alert("No te conozco, no puedes pasar");
-        setAcceso(false);
-      }
-    };
-    fetchData();
-    console.log(`El acceso es ${acceso}`)
-  }; */
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    if (password === "aa") {
+    if (password === "Elantris") {
       console.log("logeado");
-      //this.props.history.push("/app");
-      //hashHistory.push("/general");
-      //browserHistory.push("/general");
-      
-      //return  (<Redirect to="/general" />);
       props.history.push("/general");
       
     } else {
@@ -52,29 +18,62 @@ const Login = (props) => {
     
   };
 
+  const logo = (
+    <img
+      className="img-fluid imgCabecera  float-right"
+      src={process.env.PUBLIC_URL + `/images/logo.png`}
+      alt="Logo"
+      width="50em"
+      height="auto"
+    />
+  );
+
   return (
+    
     <div className="container justify-content-center mt-4">
-      <h3 className="titular mb-4">¿Quien eres?</h3>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="InputEmail">Escribe tu contraseña</label>
-          <input
-            type="password"
-            className="form-control"
-            id="InputEmail"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
+      <div className="row">
+        <div className="col"></div> 
+        <div className="col-6">
+          <div className="row login">
+          <div className="col-5">
+            <h3 className="titular mb-4">¿Quién eres?</h3>
+          </div>
+          <div className="col"></div>
+          <div className="col-5">
+            {logo}
+            </div>
+          </div>
         </div>
-        
-        <button
-          type="submit"
-          className="btn bg-f0e3c7  border border-dark text-dark"
-        >
-          Enviar
-        </button>
-      </form>
-    </div>
+      <div className="col"></div>
+      </div>
+
+      <div className="row">
+        <div className="col"></div>
+        <div className="col-6">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="InputEmail">Escribe tu contraseña</label>
+            <input
+              type="password"
+              className="form-control"
+              id="InputEmail"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+          </div>
+          
+          <button
+            type="submit"
+            className="btn bg-f0e3c7  border border-dark text-dark"
+          >
+            Enviar
+          </button>
+          </form>
+          </div>
+        <div className="col"></div>
+        </div>
+      </div>
+      
   );
 }
 

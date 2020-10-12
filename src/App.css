@@ -1,8 +1,7 @@
 body {
     background-color: #fef0d2;
     font-family: 'Red Rose', cursive;
-  }
-
+}
 .elementoLista {
   background-color: #fddb90;
   
@@ -31,6 +30,13 @@ hr {
   margin: 0;
 }
 
+.login {
+  margin-top: 10%;
+}
+
+.test {
+  border:solid saddlebrown;
+}
 .jornada {
   padding: 1%;
 }
